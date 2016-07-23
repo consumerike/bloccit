@@ -11,7 +11,7 @@
  end
  posts = Post.all
  
- # Create Comments
+ # Create Comments          
  # #3
  100.times do
    Comment.create!(
@@ -20,7 +20,13 @@
      body: RandomData.random_paragraph
    )
  end
+ p "#{Post.count}"
+ Post.find_or_create_by(title: "The Message" , body: "The good book")
+ p "#{Post.count}"
  
  puts "Seed finished"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
+ 
+ 
+ 
