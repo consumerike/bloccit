@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
   def index
-       @posts = Post.all
+    @posts = Post.all
   end
 
   def show
-         @post = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -13,20 +13,17 @@ class PostsController < ApplicationController
   
   def create
 
-     @post = Post.new
-     @post.title = params[:post][:title]
-     @post.body = params[:post][:body]
+    @post = Post.new
+    @post.title = params[:post][:title]
+    @post.body = params[:post][:body]
 
-
-     if @post.save
-
+    if @post.save
        flash[:notice] = "Post was saved successfully."
        redirect_to @post
-     else
-
+    else
        flash.now[:alert] = "There was an error saving the post. Please try again."
        render :new
-     end
+    end
   end
 
   def edit
