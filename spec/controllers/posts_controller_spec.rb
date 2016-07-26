@@ -1,4 +1,5 @@
 require 'rails_helper'
+include RandomData
 
 RSpec.describe PostsController, type: :controller do
   let(:my_post) { Post.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph) }
@@ -118,6 +119,21 @@ RSpec.describe PostsController, type: :controller do
  # #4
        put :update, id: my_post.id, post: {title: new_title, body: new_body}
        expect(response).to redirect_to my_post
+     end
+   end
+   
+   describe "DELETE destroy" do
+     it "deletes the post" do
+       delete :destroy, {id: my_post.id}
+ # #6
+       count = Post.where({id: my_post.id}).size
+       expect(count).to eq 0
+     end
+ 
+     it "redirects to posts index" do
+       delete :destroy, {id: my_post.id}
+ # #7
+       expect(response).to redirect_to posts_path
      end
    end
    
