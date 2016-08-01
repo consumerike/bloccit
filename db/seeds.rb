@@ -29,7 +29,7 @@
      price: RandomData.integer
    )
  end
- Sponsoredposts = SponsoredPost.all
+ sponsored_posts = SponsoredPost.all
  # Create Comments
 
  100.times do
