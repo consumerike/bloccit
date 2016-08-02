@@ -53,7 +53,11 @@ class PostsController < ApplicationController
 
      if @post.destroy
        flash[:notice] = "\"#{@post.title}\" was deleted successfully."
+<<<<<<< HEAD
        redirect_to @post.topic
+=======
+       redirect_to [@post.topic]
+>>>>>>> checkpoint36
      else
        flash.now[:alert] = "There was an error deleting the post."
        render :show
