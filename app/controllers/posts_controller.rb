@@ -61,3 +61,4 @@ class PostsController < ApplicationController
   end
   
 end
+#just in case
