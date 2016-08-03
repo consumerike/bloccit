@@ -26,7 +26,7 @@
      topic: topics.sample,
      title:  RandomData.random_sentence,
      body:   RandomData.random_paragraph,
-     price: RandomData.integer
+     price: rand(1..99)
    )
  end
  sponsored_posts = SponsoredPost.all
